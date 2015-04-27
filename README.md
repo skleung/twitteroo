@@ -2,7 +2,7 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: `7`
+Time spent: `9`
 
 ### Features
 
@@ -15,17 +15,19 @@ Time spent: `7`
 - [x] User can pull to refresh
 - [x] User can compose a new tweet by tapping on a compose button.
 - [x] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-- [ ] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
+- [x] User can retweet, favorite to the tweet directly from the timeline feed.
+- [ ] User can reply directly from the timeline feed.
 
 #### Optional
 
 - [x] When composing, you should have a countdown in the upper right for the tweet limit.
 - [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [x] Retweeting and favoriting should increment the retweet and favorite count.
+- [x] Favoriting and unfavoriting works right from the timeline
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](demo.gif)

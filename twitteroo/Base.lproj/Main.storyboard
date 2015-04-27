@@ -106,21 +106,21 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="fe9-TK-k5h">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="fe9-TK-k5h">
                                                     <rect key="frame" x="79" y="95" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="CyB-vl-3q2"/>
                                                         <constraint firstAttribute="height" constant="24" id="h9U-Gg-NGv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="oSX-iE-5rJ">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="oSX-iE-5rJ">
                                                     <rect key="frame" x="189" y="95" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="KQn-gd-1GN"/>
                                                         <constraint firstAttribute="height" constant="24" id="Sze-S4-GUs"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-R4-OZh">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-R4-OZh">
                                                     <rect key="frame" x="299" y="95" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="FVX-Zg-guc"/>
@@ -178,9 +178,11 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteIcon" destination="QWR-R4-OZh" id="5Gj-sG-ptg"/>
                                             <outlet property="handleLabel" destination="AzB-zy-VIq" id="Rte-AN-SL8"/>
                                             <outlet property="nameLabel" destination="nI4-8y-zGp" id="Yld-x0-3M6"/>
                                             <outlet property="photoView" destination="jhl-WM-Rx4" id="MaH-rp-hRf"/>
+                                            <outlet property="retweetIcon" destination="oSX-iE-5rJ" id="s3g-wf-h1y"/>
                                             <outlet property="timeLabel" destination="hQd-g7-Pwe" id="TgT-Ta-i7j"/>
                                             <outlet property="tweetLabel" destination="H6B-pd-gx3" id="Jp8-2w-OfP"/>
                                             <segue destination="oob-tP-SuN" kind="push" identifier="tweet_detail_segue" id="3f7-mM-R5X"/>
@@ -280,7 +282,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter tweet here" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-Re-jOY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-Re-jOY">
                                 <rect key="frame" x="16" y="157" width="568" height="423"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -517,6 +519,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qhc-Th-68n">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBo-6Y-dfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="dWr-E1-6zO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -528,15 +531,14 @@
                         <segue destination="zMC-kf-7zX" kind="relationship" relationship="viewControllers" id="TBJ-ie-YT2"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fBo-6Y-dfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="231"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Bna-gd-Tw7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zMC-kf-7zX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lo6-3A-t4w" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" selectedImage="home" id="lo6-3A-t4w" userLabel="Home"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j0K-LX-AKg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -558,6 +560,7 @@
     </scenes>
     <resources>
         <image name="favorite" width="16" height="16"/>
+        <image name="home" width="50" height="50"/>
         <image name="logo" width="1139" height="926"/>
         <image name="reply" width="16" height="16"/>
         <image name="retweet" width="19" height="16"/>

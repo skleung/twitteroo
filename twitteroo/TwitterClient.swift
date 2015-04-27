@@ -74,4 +74,36 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         completion(status: nil, error: error)
     }
   }
+  
+  func retweet(tweetID: Int?, completion: (status: Tweet?, error: NSError?) -> ()) {
+    var retweetUrlString = "1.1/statuses/retweet/\(tweetID!).json"
+    println(retweetUrlString)
+    self.POST(retweetUrlString, parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+      var tweet = Tweet(details: response as! NSDictionary)
+      completion(status: tweet, error: nil)
+      }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+        println("error retweeting")
+        completion(status: nil, error: error)
+    }
+  }
+  
+  func favorite(params: NSDictionary?, completion: (status: Tweet?, error: NSError?) -> ()) {
+    self.POST("1.1/favorites/create.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+      var tweet = Tweet(details: response as! NSDictionary)
+      completion(status: tweet, error: nil)
+      }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+        println(error)
+        completion(status: nil, error: error)
+    }
+  }
+  
+  func unfavorite(params: NSDictionary?, completion: (status: Tweet?, error: NSError?) -> ()) {
+    self.POST("1.1/favorites/destroy.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+      var tweet = Tweet(details: response as! NSDictionary)
+      completion(status: tweet, error: nil)
+      }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+        println(error)
+        completion(status: nil, error: error)
+    }
+  }
 }
