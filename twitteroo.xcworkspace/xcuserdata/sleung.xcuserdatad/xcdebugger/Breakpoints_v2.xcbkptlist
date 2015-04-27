@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "twitteroo/Tweet.swift"
-            timestampString = "451451732.550932"
+            timestampString = "451814930.54844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "tweetsWithArray(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "twitteroo/TweetsViewController.swift"
-            timestampString = "451469638.640507"
+            filePath = "twitteroo/ComposeViewController.swift"
+            timestampString = "451814930.54844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "onTweet(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

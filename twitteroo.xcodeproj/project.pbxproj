@@ -18,6 +18,8 @@
 		B558065F1AE8995700EB5512 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B558065E1AE8995700EB5512 /* Tweet.swift */; };
 		B55806611AE8D80C00EB5512 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55806601AE8D80C00EB5512 /* TweetsViewController.swift */; };
 		B55806631AE8DD2300EB5512 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55806621AE8DD2300EB5512 /* TweetCell.swift */; };
+		B5FD86721AEDA55400E4629E /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD86711AEDA55400E4629E /* ComposeViewController.swift */; };
+		B5FD86741AEDA59600E4629E /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD86731AEDA59600E4629E /* TweetDetailsViewController.swift */; };
 		C71C4B4BAC1610066E3C876E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2D1436F5DEA0AFFC25898 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		B558065E1AE8995700EB5512 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		B55806601AE8D80C00EB5512 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		B55806621AE8DD2300EB5512 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		B5FD86711AEDA55400E4629E /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		B5FD86731AEDA59600E4629E /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 				B55806551AE8773100EB5512 /* twitteroo-Bridging-Header.h */,
 				B55806601AE8D80C00EB5512 /* TweetsViewController.swift */,
 				B55806621AE8DD2300EB5512 /* TweetCell.swift */,
+				B5FD86711AEDA55400E4629E /* ComposeViewController.swift */,
+				B5FD86731AEDA59600E4629E /* TweetDetailsViewController.swift */,
 			);
 			path = twitteroo;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				B558065D1AE8994700EB5512 /* User.swift in Sources */,
 				B55806631AE8DD2300EB5512 /* TweetCell.swift in Sources */,
 				B558065F1AE8995700EB5512 /* Tweet.swift in Sources */,
+				B5FD86721AEDA55400E4629E /* ComposeViewController.swift in Sources */,
+				B5FD86741AEDA59600E4629E /* TweetDetailsViewController.swift in Sources */,
 				B55806611AE8D80C00EB5512 /* TweetsViewController.swift in Sources */,
 				B55806381AE7443C00EB5512 /* ViewController.swift in Sources */,
 				B55806591AE8778700EB5512 /* TwitterClient.swift in Sources */,

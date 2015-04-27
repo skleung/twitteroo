@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if User.currentUser != nil {
       // go to the logged in screen, otherwise it will default to the actual login screen
       println("current user detected \(User.currentUser?.name)")
-      var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as! UIViewController
+      var vc = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
       window?.rootViewController = vc
     }
     
