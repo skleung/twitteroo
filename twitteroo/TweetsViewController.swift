@@ -8,16 +8,18 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComposeViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComposeViewDelegate, TweetCellDelegate {
   
     var tweets: [Tweet]? = []
     @IBOutlet var tableView: UITableView!
     var refreshControl = UIRefreshControl()
+    var replyId:Int? = 0
+    var replyScreename:String? = ""
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        onRefresh()
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        onRefresh()
         // adds refresh control
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
@@ -39,9 +41,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
       TwitterClient.sharedInstance.homeTimelineWithCompletion(nil, completion: { (tweets, error) -> () in
         if (error == nil) {
           self.tweets = tweets
-          println(tweets)
           self.tableView.reloadData()
-          
         } else {
           println(error)
         }
@@ -52,12 +52,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
   
     func addNewTweet(tweet: Tweet) {
       tweets?.insert(tweet, atIndex: 0)
+      self.tableView.reloadData()
     }
   
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None;
       cell.setupCell(tweets![indexPath.row])
+      cell.delegate = self
       return cell
     }
     
@@ -68,7 +70,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return 1
     }
-
+  
+    func tapCell(cell: TweetCell) {
+      replyId = cell.tweet?.id
+      replyScreename = cell.tweet?.user?.screenname
+      performSegueWithIdentifier("compose_segue", sender: nil)
+    }
+  
     @IBAction func onLogout(sender: AnyObject) {
       User.currentUser?.logout()
     }
@@ -80,6 +88,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if (segue.identifier == "compose_segue") {
           var composeVC = segue.destinationViewController as! ComposeViewController
           composeVC.delegate = self
+          composeVC.replyId = replyId
+          composeVC.replyScreenname = replyScreename
         }
         if (segue.identifier == "tweet_detail_segue") {
           var tweetDetailVC = segue.destinationViewController as! TweetDetailsViewController

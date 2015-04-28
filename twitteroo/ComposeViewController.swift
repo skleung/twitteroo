@@ -44,25 +44,34 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         println(error)
       }
     })
-    
   }
     override func viewDidLoad() {
         super.viewDidLoad()
         var url = NSURL(string: User.currentUser!.profileImageUrl!)
-      if (replyScreenname != nil) {
+      if (replyScreenname != nil && replyScreenname != "") {
         textView.text = "@" + replyScreenname! + " "
+      } else {
+        textView.text = "What's happening?"
       }
         photoView.setImageWithURL(url!)
         nameLabel.text = User.currentUser?.name
         handleLabel.text = "@" + User.currentUser!.screenname!
         // Do any additional setup after loading the view.
         textView.delegate = self
+      
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func textViewDidBeginEditing(textView: UITextView) {
+    textView.text = ""
+    if (replyScreenname != nil && replyScreenname != "") {
+      textView.text = "@" + replyScreenname! + " "
+    }
+  }
   
     func textViewDidChange(textView: UITextView) {
       charsLeft = TOTAL_TWEET_CHARS - count(textView.text) ;

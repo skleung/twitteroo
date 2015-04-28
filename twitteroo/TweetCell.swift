@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol TweetCellDelegate {
+  func tapCell(cell: TweetCell)
+}
 
 class TweetCell: UITableViewCell {
 
@@ -17,15 +20,19 @@ class TweetCell: UITableViewCell {
   @IBOutlet var handleLabel: UILabel!
   @IBOutlet var favoriteIcon: UIImageView!
   @IBOutlet var retweetIcon: UIImageView!
+  @IBOutlet var replyIcon: UIImageView!
+  var delegate:TweetCellDelegate?
+  
   var tweet: Tweet?
     override func awakeFromNib() {
         super.awakeFromNib()
       let retweetGesture = UITapGestureRecognizer(target: self, action: "retweetTapped:")
       let favoriteGesture = UITapGestureRecognizer(target: self, action: "favoriteTapped:")
+      let replyGesture = UITapGestureRecognizer(target: self, action: "replyTapped:")
       // add it to the image view;
       retweetIcon.addGestureRecognizer(retweetGesture)
       favoriteIcon.addGestureRecognizer(favoriteGesture)
-
+      replyIcon.addGestureRecognizer(replyGesture)
     }
   
   func retweetTapped(gesture: UIGestureRecognizer) {
@@ -36,6 +43,15 @@ class TweetCell: UITableViewCell {
           retweetIcon.image = UIImage(named: "retweet_on")
         }
       })
+      //Here you can initiate your new ViewController
+      
+    }
+  }
+  
+  func replyTapped(gesture: UIGestureRecognizer) {
+    // if the tapped view is a UIImageView then set it to imageview
+    if let replyIcon = gesture.view as? UIImageView {
+      delegate?.tapCell(self)
       //Here you can initiate your new ViewController
       
     }

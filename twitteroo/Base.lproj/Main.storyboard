@@ -35,7 +35,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.25098039215686274" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9At-ST-nJ6" firstAttribute="top" secondItem="ckn-3W-Irq" secondAttribute="bottom" constant="73" id="2A7-tg-bYx"/>
                             <constraint firstAttribute="centerX" secondItem="ckn-3W-Irq" secondAttribute="centerX" constant="-0.5" id="QZi-js-CnS"/>
@@ -182,6 +182,7 @@
                                             <outlet property="handleLabel" destination="AzB-zy-VIq" id="Rte-AN-SL8"/>
                                             <outlet property="nameLabel" destination="nI4-8y-zGp" id="Yld-x0-3M6"/>
                                             <outlet property="photoView" destination="jhl-WM-Rx4" id="MaH-rp-hRf"/>
+                                            <outlet property="replyIcon" destination="fe9-TK-k5h" id="7xq-lq-Knk"/>
                                             <outlet property="retweetIcon" destination="oSX-iE-5rJ" id="s3g-wf-h1y"/>
                                             <outlet property="timeLabel" destination="hQd-g7-Pwe" id="TgT-Ta-i7j"/>
                                             <outlet property="tweetLabel" destination="H6B-pd-gx3" id="Jp8-2w-OfP"/>
@@ -519,7 +520,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qhc-Th-68n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fBo-6Y-dfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="dWr-E1-6zO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -531,6 +531,7 @@
                         <segue destination="zMC-kf-7zX" kind="relationship" relationship="viewControllers" id="TBJ-ie-YT2"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBo-6Y-dfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="231"/>
         </scene>
@@ -543,7 +544,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j0K-LX-AKg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.25098039220000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         </textAttributes>
