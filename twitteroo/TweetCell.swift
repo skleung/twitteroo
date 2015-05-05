@@ -9,6 +9,7 @@
 import UIKit
 protocol TweetCellDelegate {
   func tapCell(cell: TweetCell)
+  func tapProfile(cell: TweetCell)
 }
 
 class TweetCell: UITableViewCell {
@@ -30,10 +31,20 @@ class TweetCell: UITableViewCell {
       let favoriteGesture = UITapGestureRecognizer(target: self, action: "favoriteTapped:")
       let replyGesture = UITapGestureRecognizer(target: self, action: "replyTapped:")
       // add it to the image view;
+      println("awoke!")
+      let profileTap = UITapGestureRecognizer(target: self, action: "userTapped:")
       retweetIcon.addGestureRecognizer(retweetGesture)
       favoriteIcon.addGestureRecognizer(favoriteGesture)
       replyIcon.addGestureRecognizer(replyGesture)
+      photoView.addGestureRecognizer(profileTap)
+      nameLabel.addGestureRecognizer(profileTap)
     }
+  
+  func userTapped(gesture: UIGestureRecognizer) {
+    //Here you can initiate your new ViewController
+      delegate?.tapProfile(self)
+
+  }
   
   func retweetTapped(gesture: UIGestureRecognizer) {
     // if the tapped view is a UIImageView then set it to imageview

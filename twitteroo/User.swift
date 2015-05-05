@@ -17,16 +17,29 @@ class User: NSObject {
   var name: String?
   var screenname: String?
   var profileImageUrl: String?
+  var bannerImageUrl: String?
   var tagline: String?
+  var numFollowers: String?
+  var numFollowing: String?
+  var id: Int?
+  var numTweets: String?
   // we keep around this dictionary because the JSON is serializable and we don't need to encode it to store the current user in persistence
   var details: NSDictionary
   
   // constructor
   init(details: NSDictionary) {
     name = details["name"] as? String
+    id = details["id"] as? Int
     screenname = details["screen_name"] as? String
     profileImageUrl = details["profile_image_url"] as? String
     tagline = details["description"] as? String
+    var numberFollowers = details["followers_count"] as! Int
+    numFollowers = "\(numberFollowers)"
+    var numberFollowing = details["friends_count"] as! Int
+    numFollowing = "\(numberFollowing)"
+    var numberTweets = details["statuses_count"] as! Int
+    numTweets = "\(numberTweets)"
+    bannerImageUrl = details["profile_banner_url"] as? String
     self.details = details
   }
   func logout() {

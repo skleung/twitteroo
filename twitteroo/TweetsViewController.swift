@@ -62,7 +62,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
       cell.delegate = self
       return cell
     }
-    
+  
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return tweets!.count
     }
@@ -76,6 +77,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
       replyScreename = cell.tweet?.user?.screenname
       performSegueWithIdentifier("compose_segue", sender: nil)
     }
+  
+  func tapProfile(cell: TweetCell) {
+    performSegueWithIdentifier("profile_segue", sender: cell)
+  }
+  
   
     @IBAction func onLogout(sender: AnyObject) {
       User.currentUser?.logout()
@@ -95,8 +101,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
           var tweetDetailVC = segue.destinationViewController as! TweetDetailsViewController
           var cell = sender as! TweetCell
           var indexPath = tableView.indexPathForCell(cell)
-          println(tweets?[indexPath!.row].user?.name)
           tweetDetailVC.tweet = tweets![indexPath!.row]
+          
+        }
+        if (segue.identifier == "profile_segue") {
+          var profileVC = segue.destinationViewController as! ProfileViewController
+          var cell = sender as! TweetCell
+          profileVC.user = cell.tweet!.user
           
         }
       }
