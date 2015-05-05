@@ -1,7 +1,25 @@
-## Twitter [(raw)](https://gist.githubusercontent.com/timothy1ee/b9b1860c8ecb4b0b1c18/raw/2adc3f63677d81644e00245cee891eee88907767/gistfile1.md)
+## Twitter
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
+### Part 2
+Time spent: `6`
+
+### Features
+
+#### Required
+
+**Side Menu **
+- [x] Dragging anywhere in the view should reveal the menu.
+- [ ] The menu should include links to your profile, the home timeline, and the mentions view.
+- [ ] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+
+**Profile Page **
+- [x] Contains the user header view
+- [x] Contains a section with the users basic stats: # tweets, # following, # followers
+- [x] Tapping on a user image should bring up that user's profile page
+
+### Part 1
 Time spent: `10`
 
 ### Features
