@@ -90,6 +90,20 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     }
   }
   
+  func fetchMentionsTimeline(callback: (tweets: [Tweet]?, error: NSError?) -> Void) {
+    TwitterClient.sharedInstance.GET("/1.1/statuses/mentions_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+      var tweets: [Tweet] = []
+      var tweetsArray = response as! NSArray
+      for tweet in tweetsArray {
+        tweets.append(Tweet(details: tweet as! NSDictionary))
+      }
+      callback(tweets: tweets, error: nil)
+      }) { (operations: AFHTTPRequestOperation!, error: NSError!) -> Void in
+        NSLog("Error: \(error)")
+        callback(tweets: nil, error: error)
+    }
+  }
+  
   func retweet(tweetID: Int?, completion: (status: Tweet?, error: NSError?) -> ()) {
     var retweetUrlString = "1.1/statuses/retweet/\(tweetID!).json"
     println(retweetUrlString)

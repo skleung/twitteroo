@@ -22,8 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if User.currentUser != nil {
       // go to the logged in screen, otherwise it will default to the actual login screen
       println("current user detected \(User.currentUser?.name)")
-      var vc = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-      window?.rootViewController = vc
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      var tabBarViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+      
+      var menuViewController = storyboard.instantiateViewControllerWithIdentifier("SideMenu") as! SideMenuViewController
+      
+      var containerViewController = storyboard.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
+//      containerViewController.contentViewController = tabBarViewController
+//      containerViewController.menuViewController = menuViewController
+      window?.rootViewController = tabBarViewController
     }
     
     return true

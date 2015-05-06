@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController, SideMenuViewControllerDelegate {
+class ContainerViewController: UIViewController {
   var menuRevealed: Bool! = false
   
     var tweetsViewController: TweetsViewController!
-    var menuViewController: SideMenuViewController!
+//    var menuViewController: SideMenuViewController!
     var profileViewController: ProfileViewController!
     var timelineTabController: UITabBarController!
     var profileNavController: UINavigationController!
@@ -25,20 +25,11 @@ class ContainerViewController: UIViewController, SideMenuViewControllerDelegate 
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        menuViewController = storyboard.instantiateViewControllerWithIdentifier("SideMenu") as! SideMenuViewController
-        menuViewController.delegate = self
-        
-        timelineTabController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
-        tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as! TweetsViewController
-      
-        profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
-        profileViewController.user = User.currentUser!
       
         // initialize first view to be the timeline
-      addChildViewController(timelineTabController)
-      timelineTabController.view.frame = containerView.frame
-      containerView.addSubview(timelineTabController.view)
+//      addChildViewController(timelineTabController)
+//      timelineTabController.view.frame = containerView.frame
+//      containerView.addSubview(timelineTabController.view)
       
     }
 
@@ -46,6 +37,32 @@ class ContainerViewController: UIViewController, SideMenuViewControllerDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  var contentViewController: UIViewController? {
+    didSet {
+      contentViewController!.view.frame = containerView.bounds
+      for subview in containerView.subviews {
+        subview.removeFromSuperview()
+      }
+      containerView.addSubview(contentViewController!.view)
+      
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.containerView.frame.origin = CGPoint(x: 0, y:0)
+      })
+    }
+  }
+  
+  var menuViewController: UIViewController? {
+    didSet {
+      menuViewController!.view.frame = containerView.bounds
+      for subview in containerView.subviews {
+        subview.removeFromSuperview()
+      }
+      containerView.addSubview(menuViewController!.view)
+      
+    }
+  }
+  
   
   @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
     if (sender.direction == .Right && sender.state == .Ended) {
@@ -58,32 +75,15 @@ class ContainerViewController: UIViewController, SideMenuViewControllerDelegate 
   
   func revealMenu() {
     UIView.animateWithDuration(0.3, animations: { () -> Void in
-      self.containerView.frame.origin.x = self.menuViewController.view.frame.width
+      self.containerView!.frame.origin.x = self.menuViewController!.view.frame.width - 60
     })
   }
   
   func hideMenu() {
     UIView.animateWithDuration(0.3, animations: { () -> Void in
-      self.containerView.frame.origin.x = 0
+      self.containerView!.frame.origin.x = 0
     })
   }
-  
-  func didSelectHomeTimeline() {
-    
-  }
-  
-  func didSelectMenu() {
-    // Go to the profile view
-    println("WHTF")
-    addChildViewController(menuViewController)
-    menuViewController.view.frame = containerView.frame
-    containerView.addSubview(menuViewController.view)
-  }
-  
-  func didSelectProfile() {
-    // go to profile
-  }
-
     /*
     // MARK: - Navigation
 

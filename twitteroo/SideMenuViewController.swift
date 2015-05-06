@@ -16,12 +16,21 @@ protocol SideMenuViewControllerDelegate {
 
 class SideMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+  
+  var timelineTabController: UITabBarController!
+  var profileNavController: UINavigationController!
+  var mentionsNavController: UINavigationController!
+  var hamburgerViewController: ContainerViewController!
+  
+  @IBOutlet var tableView: UITableView!
     var delegate: SideMenuViewControllerDelegate?
     var menuTitles = ["Timeline", "Your Mentions", "Logout"]
     var menuIcons = ["timer", "mentions", "logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.delegate = self
+        tableView.dataSource = self
+      tableView.reloadData()
         // Do any additional setup after loading the view.
     }
 
@@ -50,6 +59,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 4
   }
+
     
 
     /*
