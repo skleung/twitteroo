@@ -3,9 +3,8 @@
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
 ### Part 2
-Time spent: `6`
-
-### Features
+Time spent: `11`
+**Note:** Couldn't figure out side menus...
 
 #### Required
 
@@ -18,6 +17,8 @@ Time spent: `6`
 - [x] Contains the user header view
 - [x] Contains a section with the users basic stats: # tweets, # following, # followers
 - [x] Tapping on a user image should bring up that user's profile page
+
+![Video Walkthrough](demo3.gif)
 
 ### Part 1
 Time spent: `10`
