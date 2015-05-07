@@ -64,32 +64,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gwt-l6-6Il">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqs-u7-uCo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </containerView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="liu-YF-kM2" appends="YES" id="cEL-Aw-cq5"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5C-Ox-8vv">
+                                <rect key="frame" x="0.0" y="10" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="siK-iV-he2" appends="YES" id="Feh-Yg-fgE"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="u5G-hJ-fRX" firstAttribute="top" secondItem="Gwt-l6-6Il" secondAttribute="bottom" id="Gp0-FD-hmw"/>
-                            <constraint firstAttribute="trailing" secondItem="Gwt-l6-6Il" secondAttribute="trailing" id="Mhx-Qd-jGr"/>
-                            <constraint firstItem="Gwt-l6-6Il" firstAttribute="leading" secondItem="jaf-wc-O5j" secondAttribute="leading" id="OYN-JZ-8uL"/>
-                            <constraint firstItem="Gwt-l6-6Il" firstAttribute="top" secondItem="jaf-wc-O5j" secondAttribute="top" id="dj3-t7-gEA"/>
+                            <constraint firstItem="Pqs-u7-uCo" firstAttribute="top" secondItem="jaf-wc-O5j" secondAttribute="top" id="GSH-4R-DIE"/>
+                            <constraint firstAttribute="trailing" secondItem="Pqs-u7-uCo" secondAttribute="trailing" id="LgB-QO-63w"/>
+                            <constraint firstAttribute="trailing" secondItem="L5C-Ox-8vv" secondAttribute="trailing" id="e2x-XL-Ewz"/>
+                            <constraint firstItem="L5C-Ox-8vv" firstAttribute="leading" secondItem="jaf-wc-O5j" secondAttribute="leading" id="gbM-xA-EUJ"/>
+                            <constraint firstItem="u5G-hJ-fRX" firstAttribute="top" secondItem="Pqs-u7-uCo" secondAttribute="bottom" id="gzt-vU-9JT"/>
+                            <constraint firstItem="L5C-Ox-8vv" firstAttribute="top" secondItem="jaf-wc-O5j" secondAttribute="top" id="hLt-gu-aal"/>
+                            <constraint firstItem="Pqs-u7-uCo" firstAttribute="leading" secondItem="jaf-wc-O5j" secondAttribute="leading" id="pKH-Yj-4Yk"/>
+                            <constraint firstItem="u5G-hJ-fRX" firstAttribute="top" secondItem="L5C-Ox-8vv" secondAttribute="bottom" id="pnv-LO-5Bi"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="fVg-Wx-QrH" appends="YES" id="2eU-f6-SUS"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="Gwt-l6-6Il" id="gJ5-zY-xOX"/>
+                        <outlet property="containerView" destination="L5C-Ox-8vv" id="5gQ-8m-nHE"/>
+                        <outlet property="menuView" destination="Pqs-u7-uCo" id="Fhs-2g-awl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3S-WG-Xnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="fVg-Wx-QrH">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="liu-YF-kM2">
                     <connections>
-                        <action selector="didSwipe:" destination="ZQy-FS-mVJ" id="dbc-k1-4JG"/>
+                        <action selector="onPanGesture:" destination="ZQy-FS-mVJ" id="Df5-dn-Ht9"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="siK-iV-he2">
+                    <connections>
+                        <action selector="onContainerViewGesture:" destination="ZQy-FS-mVJ" id="leg-Qo-RCf"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="251" y="231"/>
         </scene>
@@ -1160,7 +1180,7 @@
         <!--Mentions-->
         <scene sceneID="6vN-xT-iDp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0z8-Pg-eja" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mentionsNavController" automaticallyAdjustsScrollViewInsets="NO" id="0z8-Pg-eja" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mentions" image="retweet" selectedImage="mentions" id="9Px-q9-Smp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UPw-zW-qjy">

@@ -17,6 +17,9 @@ class ProfileCell: UITableViewCell {
     var user:User!
     override func awakeFromNib() {
         super.awakeFromNib()
+      if (user == nil) {
+        user = User.currentUser
+      }
         nameLabel.text = user.name
         handleLabel.text = user.screenname
         profilePhotoView.setImageWithURL(NSURL(string: user.profileImageUrl!))

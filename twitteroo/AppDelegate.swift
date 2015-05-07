@@ -21,18 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     if User.currentUser != nil {
       // go to the logged in screen, otherwise it will default to the actual login screen
-      println("current user detected \(User.currentUser?.name)")
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
       var tabBarViewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
       
       var menuViewController = storyboard.instantiateViewControllerWithIdentifier("SideMenu") as! SideMenuViewController
       
       var containerViewController = storyboard.instantiateViewControllerWithIdentifier("ContainerViewController") as! ContainerViewController
-//      containerViewController.contentViewController = tabBarViewController
-//      containerViewController.menuViewController = menuViewController
-      window?.rootViewController = tabBarViewController
+      
+      containerViewController.menuViewController = menuViewController
+      containerViewController.contentViewController = tabBarViewController
+      window?.rootViewController = containerViewController
     }
-    
     return true
   }
   
